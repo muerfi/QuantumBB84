@@ -1,20 +1,20 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Fonction pour calculer l'entropie binaire H(p)
+# Function to compute binary entropy H(p)
 def binary_entropy(p):
-    p = np.clip(p, 1e-10, 1 - 1e-10)  # Évite log(0)
+    p = np.clip(p, 1e-10, 1 - 1e-10)  # Avoid log(0)
     return -p * np.log2(p) - (1 - p) * np.log2(1 - p)
 
-# Valeurs de theta (de 0 à pi/2)
+# Theta values (from 0 to π/2)
 theta = np.linspace(0, np.pi/2, 100)
-# Taux d'erreur = sin^2(theta)
+# Error rate = sin^2(theta)
 error_rate = np.sin(theta)**2
 
 # I(A:E) = H(sin^2(theta))
 I_AE = binary_entropy(error_rate)
 
-# I(A:B) = 1 - H(sin^2(theta)) (simplifié, capacité maximale moins entropie d'erreur)
+# I(A:B) = 1 - H(sin^2(theta)) (simplified, maximum capacity minus error entropy)
 I_AB = 1 - binary_entropy(error_rate)
 
 plt.plot(theta, I_AE, label=r"$I(A:E)$", color="red")
@@ -24,5 +24,5 @@ plt.ylabel("Mutual Information (bits)")
 plt.title("Mutual Information vs. Attack Angle")
 plt.legend()
 plt.grid(True)
-plt.savefig("C:/Users/Neqti/Downloads/figure3.png")
+plt.savefig("C:/Users/")  # Change the path
 plt.show()
