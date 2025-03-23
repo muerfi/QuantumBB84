@@ -7,5 +7,5 @@ plt.bar(attack_types, error_rates, color=['green', 'red', 'blue'])
 plt.xlabel("Attack Type")
 plt.ylabel("Error Rate")
 plt.title("Error Rates in BB84 Simulations")
-plt.savefig("C:/Users/Neqti/Downloads/figure1.png")
+plt.savefig("C:/Users/") #Change the path
 plt.show()
