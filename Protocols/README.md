@@ -18,7 +18,7 @@
 - **Core Mechanism**: Uses entangled qubit pairs (Bell states) shared between Alice and Bob.
 - **Security Basis**: Relies on quantum entanglement and the violation of Bell’s inequalities to detect eavesdropping.
 - **Key Steps**:
-  1. A source generates entangled pairs (e.g., \( |\psi^-\rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}} \)).
+  1. A source generates entangled pairs (e.g., $$  |\psi^-\rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}  $$).
   2. Alice and Bob measure their qubits in random bases (Z, X, or 45°).
   3. They sift the key by keeping measurements where bases match.
   4. They estimate the error rate and perform a CHSH test to confirm entanglement.
