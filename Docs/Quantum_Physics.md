@@ -1,4 +1,4 @@
-# Fondements physiques de la cryptographie quantique et du protocole BB84
+# Physical Foundations of Quantum Cryptography and the BB84 Protocol
 
 ## Introduction to Quantum Mechanics
 Quantum mechanics is a branch of physics that describes the behavior of particles at microscopic scales. Unlike classical physics, it relies on probabilistic principles and counterintuitive states. The BB84 protocol exploits these principles to ensure unbreakable security.
