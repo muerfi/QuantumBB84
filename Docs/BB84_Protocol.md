@@ -1,8 +1,5 @@
 # The BB84 Protocol - Quantum Key Distribution  
 
-## Introduction  
-The BB84 protocol, proposed by Charles Bennett and Gilles Brassard in 1984, is a groundbreaking method for sharing a secret key between Alice and Bob by leveraging the principles of quantum mechanics. Unlike classical cryptography, its security is based on fundamental physical laws rather than complex computations.  
-
 ## Protocol Steps  
 1. **Preparation by Alice**:  
    - Alice generates `(4 + δ)n` random bits (e.g., `[1 0 1 0]`).  
