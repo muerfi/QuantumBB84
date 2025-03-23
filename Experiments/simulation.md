@@ -5,7 +5,7 @@ key α, at the qubits where Alice and Bob both chose the same basis. Hence, we c
 We also show the probabilities of various outcomes Bob could see, which are computed by simulating the above circuit using the same `a`, `b`, 
 and b', 2^10 times noting the number of occurences of each outcome.
 
-def testCircuits(shots, key_length):
+`def testCircuits(shots, key_length):
     # use local qasm simulator
     backend = 'ibmqx_hpc_qasm_simulator'
     qp, a, b, b_prime = BB84Program(key_length)
@@ -22,7 +22,7 @@ def testCircuits(shots, key_length):
 
 (answer, answer_eve, a, b, b_prime) = testCircuits(2**10, 4)
 print("Discrete distribution of potential measurements by Bob: ", answer)
-print("Discrete distribution of potential measurements by Bob with eavesdropping: ", answer_eve)
+print("Discrete distribution of potential measurements by Bob with eavesdropping: ", answer_eve)`
 
 Alice has generated random secret data bits, a:  [1 0 1 0 0 1 0 1 1 1 1 0 1 0 0 0]
 She will arbitrarily encode these bits using random basis, b:  [1 0 1 0 0 1 1 0 0 0 1 0 0 1 0 1]
