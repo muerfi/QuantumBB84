@@ -40,7 +40,7 @@ In a world where data security is crucial, BB84 leverages the laws of quantum me
     - [README.md](Protocols/E91/README.md) : Details on E91.
   - [README.md](Protocols/README.md) : Comparison of BB84 vs E91.
 
-- **`Examples/`** : Concrete results from simulations.
+- **`Experiments/`** : Concrete results from simulations.
   - [simulation.md](Examples/simulation.md) : Example simulation results.
 
 - **`Resources/`** : Links and a glossary for further learning.
