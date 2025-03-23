@@ -15,8 +15,16 @@ In a world where data security is increasingly critical, Quantum Key Distributio
   - [Quantum_Info.md](Docs/Quantum_Info.md) : Quantum information theory applied to BB84 (von Neumann entropy, channel capacity, etc.).
   - **`Equations/`** : Mathematical analysis and documentation.
     - [QuantumBB84_Equation.pdf](Docs/Equations/QuantumBB84_Equation.pdf) : Detailed report with equations and simulations.
-    - **`figs/`** : Figures used in the report (figure1.png, figure2.png, etc.).
-    - **`scripts/`** : Python scripts to generate the figures in the report (generate_figure1.py, etc.).
+    - **`figs/`** : Figures used in the report.
+      - [figure1.png](Docs/Equations/figs/figure1.png)
+      - [figure2.png](Docs/Equations/figs/figure2.png)
+      - [figure3.png](Docs/Equations/figs/figure3.png)
+      - [figure4.png](Docs/Equations/figs/figure4.png)
+    - **`scripts/`** : Python scripts to generate the figures in the report.
+      - [model1.py](Docs/Equations/scripts/model1.py)
+      - [model2.py](Docs/Equations/scripts/models2.py)
+      - [model3.py](Docs/Equations/scripts/models3.py)
+      - [model4.py](Docs/Equations/scripts/models4.py)
 
 - **`Quantum_security/`** : Python simulations using Qiskit.
   - [BB84_Simulation.py](Code/BB84_Simulation.py) : Complete simulation.
