@@ -5,7 +5,8 @@ key α, at the qubits where Alice and Bob both chose the same basis. Hence, we c
 We also show the probabilities of various outcomes Bob could see, which are computed by simulating the above circuit using the same `a`, `b`, 
 and b', 2^10 times noting the number of occurences of each outcome.
 
-`def testCircuits(shots, key_length):
+```python
+def testCircuits(shots, key_length):
     # use local qasm simulator
     backend = 'ibmqx_hpc_qasm_simulator'
     qp, a, b, b_prime = BB84Program(key_length)
@@ -22,8 +23,9 @@ and b', 2^10 times noting the number of occurences of each outcome.
 
 (answer, answer_eve, a, b, b_prime) = testCircuits(2**10, 4)
 print("Discrete distribution of potential measurements by Bob: ", answer)
-print("Discrete distribution of potential measurements by Bob with eavesdropping: ", answer_eve)`
+print("Discrete distribution of potential measurements by Bob with eavesdropping: ", answer_eve)
 
+```
 Alice has generated random secret data bits, a:  [1 0 1 0 0 1 0 1 1 1 1 0 1 0 0 0]
 She will arbitrarily encode these bits using random basis, b:  [1 0 1 0 0 1 1 0 0 0 1 0 0 1 0 1]
 Bob has chosen random basis, b':  [1 0 1 1 1 1 1 0 1 0 1 1 1 1 0 0]
@@ -33,7 +35,7 @@ Discrete distribution of potential measurements by Bob:  {'0000011010101101': 19
 Discrete distribution of potential measurements by Bob with eavesdropping:  {'1000011101100101': 63, '1001011101100101': 53, '0001011100100101': 84, '1001011100100101': 61, '1001011110100101': 55, '0001011101100101': 68, '0000011101100101': 71, '0001011111100101': 56, '0000011100100101': 69, '1000011111100101': 65, '1001011111100101': 65, '0000011110100101': 61, '1000011110100101': 56, '0000011111100101': 64, '0001011110100101': 62, '1000011100100101': 71}
 
 Of course, Bob will not see a probability distribution, but rather one of these particular outcomes. Hence, we'll take one of these outcomes at random.
-
+```
 def getMeasurement(answer, answer_eve):
     bob_meas = list(random.choice(list(answer.keys())))
     bob_meas = list(map(int, bob_meas))
@@ -50,18 +52,18 @@ def getMeasurement(answer, answer_eve):
     return (bob_meas, bob_meas_eve)
     
 bob_meas, bob_meas_eve = getMeasurement(answer, answer_eve)
-
+```
 Bob's measurement result:  [1 0 1 1 0 1 0 1 1 1 1 0 0 0 0 0]
 Bob's measurement result with eavesdropping:  [1 0 1 0 0 1 1 0 1 1 1 0 1 0 0 0]
 Now, we can use the above measurement to determine whether the key exchange was successful or not. In other words, Alice and Bob determine if their check bits agree in enough places so that they can conclude that their was no interference by Eve.
 
 First, they communicate over a classical channel to determine where their choices in random bases agreed.
-
+```
 print("Key Exchange without eavesdropping: ")
 res = determineKey(a, bob_meas, b, b_prime)
 print("Key Exchange with eavesdropping: ")
 res = determineKey(a, bob_meas_eve, b, b_prime)
-
+```
 Key Exchange without eavesdropping: 
 Alice has check bits:  [1 0]
 Bob has check bits:  [1 0]
@@ -72,7 +74,7 @@ Bob has check bits:  [1 0]
 Successfully exchanged private key:  [0 0]
 Hence, we can perform the above steps over many iterations to observe expirementally how likely Alice and Bob are to succeed in key 
 exchange in addition to how likely Eve is to eavesdrop undetected.
-
+```
 def plot_eve_undetected(probs):
     
     objects = ('2', '4', '8')
@@ -86,9 +88,9 @@ def plot_eve_undetected(probs):
     plt.title('Probability of Undetected Eavesdropping')
     
     plt.show()
-
+```
 ----------------------------------------------------------------------
-
+```
 probs = []
 
 for n in [2, 4, 8]:
@@ -117,7 +119,7 @@ for n in [2, 4, 8]:
     probs.append(p)
     
 plot_eve()
-
+```
 ---------------------------------------------------------------------
 
 Simulation round: 0
