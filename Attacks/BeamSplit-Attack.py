@@ -2,14 +2,14 @@ import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
 from Code.utils import generate_random_bits, compare_bases, extract_key
 
-# Paramètres
+# Parameters
 n = 4
 total_qubits = 4 * n
 shots = 1024
-split_fraction = 0.3  # Fraction des photons détournée par Eve
+split_fraction = 0.3  # Fraction of photons diverted by Eve
 threshold = 0.05
 
-def simuler_attaque_par_faisceau_divisé():
+def simulate_split-beam_attack():
     alice_bits = generate_random_bits(total_qubits)
     alice_bases = generate_random_bits(total_qubits)
     
@@ -24,7 +24,7 @@ def simuler_attaque_par_faisceau_divisé():
             qc_bob.h(i)
             qc_eve.h(i)
     
-    # Eve mesure une fraction des qubits
+    # Eve measures a fraction of the qubits
     eve_bits = np.zeros(total_qubits, dtype=int)
     for i in range(total_qubits):
         if np.random.random() < split_fraction:
@@ -32,7 +32,7 @@ def simuler_attaque_par_faisceau_divisé():
             result = execute(qc_eve, Aer.get_backend('qasm_simulator'), shots=1).result()
             eve_bits[i] = int(list(result.get_counts().keys())[0])
     
-    # Bob mesure
+    # Bob measures
     bob_bases = generate_random_bits(total_qubits)
     for i in range(total_qubits):
         if bob_bases[i] == 1:
@@ -51,11 +51,11 @@ def simuler_attaque_par_faisceau_divisé():
     eve_key, _ = extract_key(eve_bits, matching_indices, n)
     error_rate = np.mean(alice_check != bob_check)
     
-    print(f"Clé d’Alice : {alice_key}")
-    print(f"Clé de Bob : {bob_key}")
-    print(f"Clé d’Eve (partielle) : {eve_key}")
-    print(f"Taux d’erreur : {error_rate:.3f}")
+    print(f"Alice's key: {alice_key}")
+    print(f"Bob's key: {bob_key}")
+    print(f"Eve's (partial) key: {eve_key}")
+    print(f"Error rate: {error_rate:.3f}")
     return alice_key, eve_key, error_rate
 
 if __name__ == "__main__":
-    simuler_attaque_par_faisceau_divisé()
+    simulate_split-beam_attack()
