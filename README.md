@@ -19,7 +19,7 @@ In a world where data security is crucial, BB84 leverages the laws of quantum me
     - **`figs/`** : Figures used in the report (figure1.png, figure2.png, etc.).
     - **`scripts/`** : Python scripts to generate the figures in the report (generate_figure1.py, etc.).
 
-- **`Code/`** : Python simulations using Qiskit.
+- **`Quantum_security/`** : Python simulations using Qiskit.
   - [BB84_Simulation.py](Code/BB84_Simulation.py) : Complete simulation.
   - [BB84_No_Eve.py](Code/BB84_No_Eve.py) : Without interception.
   - [BB84_With_Eve.py](Code/BB84_With_Eve.py) : With Eve.
