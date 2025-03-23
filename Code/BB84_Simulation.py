@@ -13,7 +13,7 @@ error_threshold = 0.05  # Error threshold for detecting Eve
 
 def simulate_bb84(with_eve=False):
     """Simulates the BB84 protocol with or without Eve."""
-    # Step 1: Alice generates random bits and bases
+    # Alice generates random bits and bases
     alice_bits = generate_random_bits(total_qubits)
     alice_bases = generate_random_bits(total_qubits)
     print(f"Alice's bits: {alice_bits}")
@@ -22,14 +22,14 @@ def simulate_bb84(with_eve=False):
     # Create the quantum circuit
     qc = QuantumCircuit(total_qubits, total_qubits)
 
-    # Step 2: Alice prepares the qubits
+    # Alice prepares the qubits
     for i in range(total_qubits):
         if alice_bits[i] == 1:
             qc.x(i)  # |0⟩ → |1⟩
         if alice_bases[i] == 1:
             qc.h(i)  # Z basis → X basis (|+⟩ or |-⟩)
 
-    # Step 3 (optional): Eve intercepts
+    # Eve intercepts
     if with_eve:
         eve_bases = generate_random_bits(total_qubits)
         print(f"Eve's bases: {eve_bases}")
@@ -43,7 +43,7 @@ def simulate_bb84(with_eve=False):
             if alice_bases[i] == 1:
                 qc.h(i)
 
-    # Step 4: Bob measures
+    # Bob measures
     bob_bases = generate_random_bits(total_qubits)
     print(f"Bob's bases: {bob_bases}")
     for i in range(total_qubits):
@@ -58,7 +58,7 @@ def simulate_bb84(with_eve=False):
     bob_meas = np.array([int(x) for x in list(counts.keys())[0][::-1]])
     print(f"Bob's measurements: {bob_meas}")
 
-    # Step 5: Base comparison
+    # Base comparison
     matching_indices = compare_bases(alice_bases, bob_bases)
     if len(matching_indices) < 2 * n:
         print("Error: Not enough matching bits. Protocol aborted.")
@@ -72,7 +72,7 @@ def simulate_bb84(with_eve=False):
     print(f"Bob's key: {bob_key}")
     print(f"Bob's check bits: {bob_check}")
 
-    # Step 6: Check for interference
+    # Check for interference
     error_rate = np.mean(alice_check != bob_check)
     print(f"Error rate: {error_rate:.3f}")
     if error_rate > error_threshold:
