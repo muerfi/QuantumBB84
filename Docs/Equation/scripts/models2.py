@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Valeurs de theta (de 0 à pi/2)
+# Theta values (from 0 to π/2)
 theta = np.linspace(0, np.pi/2, 100)
-# Taux d'erreur = sin^2(theta)
+# Error rate = sin²(theta)
 error_rate = np.sin(theta)**2
 
 plt.plot(theta, error_rate, label=r"Error Rate = $\sin^2(\theta)$", color="purple")
@@ -12,5 +12,5 @@ plt.ylabel("Error Rate")
 plt.title("Error Rate vs. Attack Angle in Coherent Attack")
 plt.legend()
 plt.grid(True)
-plt.savefig("C:/Users/Neqti/Downloads/figure2.png")
+plt.savefig("C:/Users/") # Change the path
 plt.show()
