@@ -28,5 +28,5 @@ plt.ylabel("Bit Value")
 plt.title(f"Key Distribution with Noise (Error Rate = {error_counts/n_bits:.2f})")
 plt.legend()
 plt.grid(True)
-plt.savefig("C:/Users/Neqti/Downloads/figure4.png")
+plt.savefig("C:/Users/") " Change the path
 plt.show()
