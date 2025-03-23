@@ -7,16 +7,16 @@
 
 ## Beam Split Attack
 - **Principle**: Eve splits the signal and measures a fraction of the photons.
-- **File**: `Beam_Split_Attack.py`
+- **File**: `BeamSplit_Attack.py`
 - **Physics**: Transformation \( |\psi\rangle \to \sqrt{1-\tau}|\psi\rangle_{\text{Bob}} + \sqrt{\tau}|\psi\rangle_{\text{Eve}} \).
 
 ## PNS Attack (Photon Number Splitting)
 - **File**: `PNS_Attack.py`
 
 ## Split-Beam Attack
-- **File**: `Beam_Split_Attack.py`
+- **File**: `BeamSplit_Attack.py`
 
 ## Coherent Attack
 - **Principle**: Eve applies a global unitary operation \( U = e^{-i \theta H} \) to correlate her qubits with Alice's.
-- **File**: `Coherent_Attack.py`
+- **File**: `Attack_q-bits.py`
 - **Mathematics**: Minimal disturbance if \( \theta \ll 1 \), but \( I(A:E) \propto \sin^2\theta \).
