@@ -14,22 +14,21 @@ In a world where data security is crucial, BB84 leverages the laws of quantum me
   - [Practical_Limits.md](Docs/Practical_Limits.md) : Practical considerations in QKD.
   - **`Equations/`** : Mathematical analysis and documentation.
     - [QuantumBB84_Equation.pdf](Docs/Equations/QuantumBB84_Equation.pdf) : Detailed report with equations and simulations.
-    - [QuantumBB84_Advanced.tex](Docs/Equations/QuantumBB84_Advanced.tex) : LaTeX source for the report.
     - **`figs/`** : Figures used in the report (figure1.png, figure2.png, etc.).
     - **`scripts/`** : Python scripts to generate the figures in the report (generate_figure1.py, etc.).
 
-- **`Code/`** : Python simulations using Qiskit.
+- **`quantum_security/`** : Python simulations using Qiskit.
   - [BB84_Simulation.py](Code/BB84_Simulation.py) : Complete simulation.
   - [BB84_No_Eve.py](Code/BB84_No_Eve.py) : Without interception.
   - [BB84_With_Eve.py](Code/BB84_With_Eve.py) : With Eve.
   - [Noise_Analysis.py](Code/Noise_Analysis.py) : Analysis of noise effects.
-  - [Interactive_Visualization.py](Code/Interactive_Visualization.py) : Interactive visualizations.
-  - [MultiRun_Stats.py](Code/MultiRun_Stats.py) : Statistics over multiple runs.
+  - [Interactive-visualization.py](Code/Interactive_Visualization.py) : Interactive visualizations.
+  - [Multirun-stats.py](Code/MultiRun_Stats.py) : Statistics over multiple runs.
   - [utils.py](Code/utils.py) : Utility functions.
 
 - **`Attacks/`** : Implementations of quantum attacks.
   - [PNS_Attack.py](Attacks/PNS_Attack.py) : Photon Number Splitting attack.
-  - [Beam_Split_Attack.py](Attacks/Beam_Split_Attack.py) : Beam Split attack.
+  - [BeamSplit-Attack.py](Attacks/Beam_Split_Attack.py) : Beam Split attack.
   - [README.md](Attacks/README.md) : Explanations of the attacks.
 
 - **`Protocols/`** : Comparison of QKD protocols.
