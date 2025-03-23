@@ -41,6 +41,7 @@ In a world where data security is crucial, BB84 leverages the laws of quantum me
   - **`E91/`** : E91 implementation.
     - [E91_Simulation.py](Protocols/E91/E91_Simulation.py) : E91 simulation.
     - [README.md](Protocols/E91/README.md) : Details on E91 and Comparison of BB84 vs E91
+  - [README.md](Protocols/README.md) : Comparison of BB84 vs E91.
 
 - **`Examples/`** : Concrete results from simulations.
   - [simulation.md](Examples/simulation.md) : Example simulation results.
