@@ -37,12 +37,12 @@ The quantum channel (optical fiber or free space) transmits these photons from A
 ### Indeterminism and Security
 Quantum indeterminism ensures that any interception attempt by Eve alters the qubits in a detectable way. This follows from the no-cloning theorem, which states that an unknown quantum state cannot be perfectly copied, making eavesdropping impossible without introducing disturbances.
 ## Application in BB84
-- **Encodage** : Alice uses superposition to encode her bits in random bases.
-- **Mesure aléatoire** : Bob independently selects bases, and errors due to incorrect bases are expected (50% match probability).
-- **Détection** : Any additional disturbance (by Eve) increases the error rate beyond this natural threshold.
+- **Encoding** : Alice uses superposition to encode her bits in random bases.
+- **Random Measurement** : Bob independently selects bases, and errors due to incorrect bases are expected (50% match probability).
+- **Detection** : Any additional disturbance (by Eve) increases the error rate beyond this natural threshold.
 
 ## Physical Limitations
-- **Bruit** : In real-world scenarios, the quantum channel introduces noise (e.g., photon loss), requiring error correction.
+- **Noise** : In real-world scenarios, the quantum channel introduces noise (e.g., photon loss), requiring error correction.
 - **Distance** : Decoherence limits the range without quantum repeaters.
 
 This file explores essential physical foundations. For a practical simulation, see [BB84_Simulation.py](../Code/BB84_Simulation.py).
