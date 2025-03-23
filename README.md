@@ -1,6 +1,6 @@
-# QuantumBB84 - Quantum Cryptography with BB84
+# QuantumBB84 - Exploring Quantum Key Distribution
 
-Welcome to QuantumBB84, an educational and practical project dedicated to the BB84 protocol, one of the first Quantum Key Distribution (QKD) methods. This repository explores how BB84 works, its foundations in quantum physics, and its philosophical implications, while also providing Python simulations with Qiskit.
+Welcome to QuantumBB84, an educational and practical project dedicated to Quantum Key Distribution (QKD). This repository explores two foundational QKD protocols—BB84 and E91—along with their foundations in quantum physics, philosophical implications, theoretical analyses, attack implementations, and Python simulations using Qiskit.
 
 ## Project Motivation
 In a world where data security is increasingly critical, Quantum Key Distribution (QKD) offers a revolutionary approach to secure communication by leveraging the laws of quantum mechanics. This project explores two foundational QKD protocols: BB84, which ensures secure key distribution using single qubits, and E91, which uses quantum entanglement and Bell's inequalities to detect eavesdroppers like Eve. Through simulations, theoretical analyses, and attack implementations, this project provides a comprehensive look at the principles, security, and practical challenges of quantum cryptography.
