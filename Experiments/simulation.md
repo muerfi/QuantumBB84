@@ -35,7 +35,7 @@ Discrete distribution of potential measurements by Bob:  {'0000011010101101': 19
 Discrete distribution of potential measurements by Bob with eavesdropping:  {'1000011101100101': 63, '1001011101100101': 53, '0001011100100101': 84, '1001011100100101': 61, '1001011110100101': 55, '0001011101100101': 68, '0000011101100101': 71, '0001011111100101': 56, '0000011100100101': 69, '1000011111100101': 65, '1001011111100101': 65, '0000011110100101': 61, '1000011110100101': 56, '0000011111100101': 64, '0001011110100101': 62, '1000011100100101': 71}
 
 Of course, Bob will not see a probability distribution, but rather one of these particular outcomes. Hence, we'll take one of these outcomes at random.
-```
+```python
 def getMeasurement(answer, answer_eve):
     bob_meas = list(random.choice(list(answer.keys())))
     bob_meas = list(map(int, bob_meas))
@@ -58,7 +58,7 @@ Bob's measurement result with eavesdropping:  [1 0 1 0 0 1 1 0 1 1 1 0 1 0 0 0]
 Now, we can use the above measurement to determine whether the key exchange was successful or not. In other words, Alice and Bob determine if their check bits agree in enough places so that they can conclude that their was no interference by Eve.
 
 First, they communicate over a classical channel to determine where their choices in random bases agreed.
-```
+```python
 print("Key Exchange without eavesdropping: ")
 res = determineKey(a, bob_meas, b, b_prime)
 print("Key Exchange with eavesdropping: ")
@@ -74,7 +74,7 @@ Bob has check bits:  [1 0]
 Successfully exchanged private key:  [0 0]
 Hence, we can perform the above steps over many iterations to observe expirementally how likely Alice and Bob are to succeed in key 
 exchange in addition to how likely Eve is to eavesdrop undetected.
-```
+```python
 def plot_eve_undetected(probs):
     
     objects = ('2', '4', '8')
@@ -90,7 +90,7 @@ def plot_eve_undetected(probs):
     plt.show()
 ```
 ----------------------------------------------------------------------
-```
+```python
 probs = []
 
 for n in [2, 4, 8]:
