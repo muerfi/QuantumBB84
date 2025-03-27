@@ -64,9 +64,6 @@ In a world where data security is increasingly critical, Quantum Key Distributio
   - Note: `qiskit-aer` is required for simulation backends like QASM simulator.
 - **NumPy** : For numerical computations (`pip install numpy`).
 - **Matplotlib** : For generating graphs (`pip install matplotlib`).
-- **LaTeX Distribution** : To compile the PDF (`QuantumBB84_Equation.pdf`), install a LaTeX distribution like TeX Live or MiKTeX.
-  - On Windows: Install MiKTeX (https://miktex.org/download).
-  - On Linux/Mac: Install TeX Live (`sudo apt install texlive-full` on Ubuntu).
 - **Plotly** (optional) : For interactive visualizations in `Interactive_Visualization.py` (`pip install plotly`).
 
 ## How to Use This Repository ?
