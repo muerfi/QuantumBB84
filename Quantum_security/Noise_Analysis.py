@@ -1,7 +1,7 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
 from qiskit.providers.aer.noise import NoiseModel, depolarizing_error
-from Code.utils import generate_random_bits, compare_bases, extract_key
+from Quantum_security.utils import generate_random_bits, compare_bases, extract_key
 import matplotlib.pyplot as plt
 
 # Parameters
@@ -90,7 +90,7 @@ def analyze_noise_impact():
     plt.title("Impact of noise on Eve's detection")
     plt.legend()
     plt.grid()
-    plt.savefig("Examples/noise_impact.png")
+    plt.savefig("Experiments/noise_impact.png")
     plt.show()
 
 if __name__ == "__main__":

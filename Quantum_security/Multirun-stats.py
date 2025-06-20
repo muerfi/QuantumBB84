@@ -1,6 +1,6 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
-from Code.utils import generate_random_bits, compare_bases, extract_key
+from Quantum_security.utils import generate_random_bits, compare_bases, extract_key
 import pandas as pd
 
 # Parameters
@@ -72,7 +72,7 @@ def multi_run_stats():
         'With Eve - Success': stats['with_eve']['success'],
         'With Eve - Error Rates': stats['with_eve']['error_rates']
     })
-    df.to_csv("Examples/multi_run_stats.csv", index=False)
+    df.to_csv("Experiments/multi_run_stats.csv", index=False)
     
     print("=== Statistics ===")
     print(f"Without Eve - Success Rate: {np.mean(stats['no_eve']['success']):.3f}")

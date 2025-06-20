@@ -1,7 +1,7 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
 from qiskit.quantum_info import Operator
-from Code.utils import generate_random_bits, compare_bases, extract_key
+from Quantum_security.utils import generate_random_bits, compare_bases, extract_key
 
 # Parameters
 n = 4

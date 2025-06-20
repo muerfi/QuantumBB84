@@ -45,7 +45,7 @@ This directory contains a simulation of the BB84 protocol implemented using Qisk
     - Bob measures the qubits.
     - Sifting, error estimation, and key extraction.
     - Detection of Eve based on a threshold error rate.
-  - The script uses utility functions from `Code/utils.py` (`generate_random_bits`, `compare_bases`, `extract_key`).
+  - The script uses utility functions from `Quantum_security/utils.py` (`generate_random_bits`, `compare_bases`, `extract_key`).
 
 ### Usage
 

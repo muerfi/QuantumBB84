@@ -2,7 +2,7 @@ import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
-from Code.utils import generate_random_bits, compare_bases, extract_key
+from Quantum_security.utils import generate_random_bits, compare_bases, extract_key
 
 # Global parameters
 n = 4  # Target key length
