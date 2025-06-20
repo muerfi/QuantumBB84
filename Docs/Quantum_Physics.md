@@ -45,4 +45,4 @@ Quantum indeterminism ensures that any interception attempt by Eve alters the qu
 - **Noise** : In real-world scenarios, the quantum channel introduces noise (e.g., photon loss), requiring error correction.
 - **Distance** : Decoherence limits the range without quantum repeaters.
 
-This file explores essential physical foundations. For a practical simulation, see [BB84_Simulation.py](../Code/BB84_Simulation.py).
+This file explores essential physical foundations. For a practical simulation, see [BB84_Simulation.py](../Quantum_security/BB84_Simulation.py).

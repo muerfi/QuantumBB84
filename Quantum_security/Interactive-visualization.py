@@ -1,6 +1,6 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
-from Code.utils import generate_random_bits, compare_bases
+from Quantum_security.utils import generate_random_bits, compare_bases
 import plotly.graph_objects as go
 
 # Parameters
@@ -61,7 +61,7 @@ def plot_interactive(counts_no_eve, counts_with_eve):
         barmode='group',
         bargap=0.15
     )
-    fig.write_html("Examples/distribution.html")
+    fig.write_html("Experiments/distribution.html")
     fig.show()
 
 if __name__ == "__main__":

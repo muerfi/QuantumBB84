@@ -27,13 +27,13 @@ In a world where data security is increasingly critical, Quantum Key Distributio
       - [model4.py](Docs/Equations/scripts/models4.py)
 
 - **`Quantum_security/`** : Python simulations using Qiskit
-  - [BB84_Simulation.py](Code/BB84_Simulation.py) : Complete simulation
-  - [BB84_No_Eve.py](Code/BB84_No_Eve.py) : Without interception
-  - [BB84_With_Eve.py](Code/BB84_With_Eve.py) : With Eve
-  - [Noise_Analysis.py](Code/Noise_Analysis.py) : Analysis of noise effects
-  - [Interactive_Visualization.py](Code/Interactive_Visualization.py) : Interactive visualizations
-  - [MultiRun_Stats.py](Code/MultiRun_Stats.py) : Statistics over multiple runs
-  - [utils.py](Code/utils.py) : Utility functions
+  - [BB84_Simulation.py](Quantum_security/BB84_Simulation.py) : Complete simulation
+  - [BB84_No_Eve.py](Quantum_security/BB84_No_Eve.py) : Without interception
+  - [BB84_With_Eve.py](Quantum_security/BB84_With_Eve.py) : With Eve
+  - [Noise_Analysis.py](Quantum_security/Noise_Analysis.py) : Analysis of noise effects
+  - [Interactive_Visualization.py](Quantum_security/Interactive-visualization.py) : Interactive visualizations
+  - [MultiRun_Stats.py](Quantum_security/Multirun-stats.py) : Statistics over multiple runs
+  - [utils.py](Quantum_security/utils.py) : Utility functions
 
 - **`Attacks/`** : Implementations of quantum attacks
   - [PNS_Attack.py](Attacks/PNS_Attack.py) : Photon Number Splitting attack
@@ -50,8 +50,8 @@ In a world where data security is increasingly critical, Quantum Key Distributio
     - [README.md](Protocols/E91/README.md) : Details on E91 and Comparison of BB84 vs E91
   - [README.md](Protocols/README.md) : Comparison of BB84 vs E91
 
-- **`Examples/`** : Concrete results from simulations
-  - [simulation.md](Examples/simulation.md) : Example simulation results
+- **`Experiments/`** : Concrete results from simulations
+  - [simulation.md](Experiments/simulation.md) : Example simulation results
 
 - **`Resources/`** : Links and a glossary for further learning
   - [glossary.md](Resources/glossary.md) : Glossary of terms

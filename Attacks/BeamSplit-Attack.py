@@ -1,6 +1,6 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
-from Code.utils import generate_random_bits, compare_bases, extract_key
+from Quantum_security.utils import generate_random_bits, compare_bases, extract_key
 
 # Parameters
 n = 4
@@ -9,7 +9,7 @@ shots = 1024
 split_fraction = 0.3  # Fraction of photons diverted by Eve
 threshold = 0.05
 
-def simulate_split-beam_attack():
+def simulate_split_beam_attack():
     alice_bits = generate_random_bits(total_qubits)
     alice_bases = generate_random_bits(total_qubits)
     
@@ -58,4 +58,4 @@ def simulate_split-beam_attack():
     return alice_key, eve_key, error_rate
 
 if __name__ == "__main__":
-    simulate_split-beam_attack()
+    simulate_split_beam_attack()
