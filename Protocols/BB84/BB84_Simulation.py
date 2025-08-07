@@ -1,11 +1,17 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
-from Quantum_security.utils import generate_random_bits, compare_bases, extract_key
+from Quantum_security.utils import (
+    generate_random_bits,
+    compare_bases,
+    extract_key,
+    sample_counts,
+)
+import random
 
 # Parameters
 n = 4  # Length of the final key
 total_qubits = 4 * n  # Total qubits sent (before sifting)
-shots = 1024  # Number of shots for simulation
+shots = 1  # Number of shots for simulation
 eve_present = True  # Toggle Eve's presence (True/False)
 intercept_prob = 0.5  # Probability that Eve intercepts a qubit
 threshold = 0.05  # Error rate threshold for detecting Eve
@@ -37,20 +43,21 @@ def simulate_bb84(eve_present=True, intercept_prob=0.5):
     eve_bits = np.zeros(total_qubits, dtype=int) if eve_present else None
     if eve_present:
         eve_bases = generate_random_bits(total_qubits)  # Eve chooses random bases
+        rng = random.SystemRandom()
         for i in range(total_qubits):
-            if np.random.random() < intercept_prob:  # Eve decides to intercept
+            if rng.random() < intercept_prob:  # Eve decides to intercept
                 if eve_bases[i] == 0:  # Z basis
                     qc.measure(i, i)  # Measure in Z basis
-                    result = execute(qc, Aer.get_backend('qasm_simulator'), shots=1).result()
-                    eve_bits[i] = int(list(result.get_counts().keys())[0][0])
+                    result = execute(qc, Aer.get_backend("qasm_simulator"), shots=1).result()
+                    eve_bits[i] = int(sample_counts(result.get_counts())[::-1][i])
                     qc.reset(i)  # Reset qubit
                     if eve_bits[i] == 1:
                         qc.x(i)  # Re-prepare qubit
                 else:  # X basis
                     qc.h(i)  # Switch to X basis
                     qc.measure(i, i)  # Measure in X basis
-                    result = execute(qc, Aer.get_backend('qasm_simulator'), shots=1).result()
-                    eve_bits[i] = int(list(result.get_counts().keys())[0][0])
+                    result = execute(qc, Aer.get_backend("qasm_simulator"), shots=1).result()
+                    eve_bits[i] = int(sample_counts(result.get_counts())[::-1][i])
                     qc.reset(i)  # Reset qubit
                     if eve_bits[i] == 1:
                         qc.x(i)  # Re-prepare qubit
@@ -66,7 +73,7 @@ def simulate_bb84(eve_present=True, intercept_prob=0.5):
     # Step 5: Run the simulation
     backend = Aer.get_backend('qasm_simulator')
     result = execute(qc, backend, shots=shots).result()
-    bob_meas = np.array([int(x) for x in list(result.get_counts().keys())[0][::-1]])
+    bob_meas = np.array([int(x) for x in sample_counts(result.get_counts())[::-1]])
     
     # Step 6: Sift keys (keep only where bases match)
     matching_indices = compare_bases(alice_bases, bob_bases)
