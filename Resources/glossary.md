@@ -1,10 +1,11 @@
-# Quantum Terms Glossary
+# Glossary (QKD Basics)
 
-- **Qubit** : The basic unit of quantum information, which can exist in superposition.
-- **Superposition** : A state where a qubit is simultaneously in multiple states (e.g., |0⟩ and |1⟩).
-- **Basis** : A set of eigenstates used to measure a qubit (e.g., Z = { |0⟩, |1⟩ }, X = { |+⟩, |-⟩ }).
-- **Measurement** : The process that collapses a qubit into a defined state, depending on the chosen basis.
-- **Entanglement** : Quantum correlation between two qubits, not used in BB84.
-- **No-Cloning Theorem** : The impossibility of copying an unknown quantum state.
-- **Quantum Channel** : The medium for transmitting qubits (e.g., optical fiber).
-- **Decoherence** : Loss of quantum properties due to interaction with the environment.
+- **Qubit**: Quantum information unit represented by a two-level state.
+- **Basis**: Set of states used for preparation/measurement (e.g., Z or X basis).
+- **Superposition**: A qubit state expressed as a linear combination of basis states.
+- **Measurement**: Operation that produces a classical outcome according to the chosen basis.
+- **Entanglement**: Correlation structure between systems that cannot be reproduced classically.
+- **No-cloning theorem**: Unknown quantum states cannot be copied perfectly.
+- **QBER**: Quantum bit error rate; mismatch fraction between Alice and Bob over test bits.
+- **Sifting**: Keeping only positions where Alice and Bob used compatible bases.
+- **Privacy amplification**: Compressing partially secret data into a shorter, more secure key.

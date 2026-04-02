@@ -1,57 +1,28 @@
-# BB84 Protocol
+# BB84 Protocol (Implementation Notes)
 
-## Overview of BB84
+## What this script demonstrates
 
-The BB84 protocol allows two parties, Alice and Bob, to securely share a cryptographic key using the principles of quantum mechanics. It ensures security against eavesdropping by leveraging the no-cloning theorem and the effect of measurement on quantum states.
+`BB84_Simulation.py` models a basic BB84 flow:
+1. Alice generates random bits and random bases.
+2. Bob measures each qubit in random bases.
+3. Alice/Bob keep only matching-basis positions (sifting).
+4. A subset is used as check bits to estimate error rate.
+5. Remaining bits become a candidate key if the error rate is below a threshold.
 
-### Key Steps of BB84
+The script can optionally include an intercept-resend style eavesdropper.
 
-1. **Qubit Preparation (Alice)**:
-   - Alice generates a random bit string (e.g., \( 0, 1 \)).
-   - For each bit, she randomly chooses a basis: Z basis (\(|0\rangle\), \(|1\rangle\)) or X basis (\(|+\rangle = \frac{|0\rangle + |1\rangle}{\sqrt{2}}\), \(|-\rangle = \frac{|0\rangle - |1\rangle}{\sqrt{2}}\)).
-   - She prepares qubits accordingly and sends them to Bob over a quantum channel.
+## Security interpretation
 
-2. **Measurement (Bob)**:
-   - Bob receives the qubits and measures each one in a randomly chosen basis (Z or X).
-   - If Bob’s basis matches Alice’s, he measures the correct bit. If not, his measurement introduces a 50% error rate.
+In ideal BB84, random interception tends to increase the quantum bit error rate. This script uses that idea as a detection heuristic.
 
-3. **Sifting**:
-   - Alice and Bob publicly compare their bases (not the bits) and keep only the bits where their bases match.
+## What is simplified here
 
-4. **Error Estimation**:
-   - They sacrifice a portion of their sifted key to estimate the error rate by comparing a subset of bits.
-   - A high error rate (e.g., >5%) indicates the presence of an eavesdropper (Eve).
+- Device imperfections are not modeled in depth.
+- Error correction/privacy amplification are represented conceptually, not as full protocol modules.
+- Reported key lengths and error rates are for teaching/demonstration.
 
-5. **Error Correction and Privacy Amplification**:
-   - If the error rate is acceptable, they perform error correction to fix discrepancies.
-   - They apply privacy amplification (e.g., hashing) to reduce Eve’s potential knowledge of the key to a negligible amount.
+## Run
 
-### Security Principles
-
-- **No-Cloning Theorem**: Eve cannot copy an unknown quantum state without disturbing it.
-- **Measurement Disturbance**: If Eve measures a qubit in the wrong basis, she introduces errors that Alice and Bob can detect.
-- **Information-Theoretic Security**: The security of BB84 relies on quantum mechanics, not computational assumptions.
-
-## Implementation in This Project
-
-This directory contains a simulation of the BB84 protocol implemented using Qiskit, IBM's quantum computing framework.
-
-### Files
-
-- **[BB84_Simulation.py](BB84_Simulation.py)**:
-  - A Python script that simulates the BB84 protocol with the following features:
-    - Alice prepares and sends qubits.
-    - Optional interception by Eve with a configurable probability.
-    - Bob measures the qubits.
-    - Sifting, error estimation, and key extraction.
-    - Detection of Eve based on a threshold error rate.
-  - The script uses utility functions from `Quantum_security/utils.py` (`generate_random_bits`, `compare_bases`, `extract_key`).
-
-### Usage
-
-To run the BB84 simulation:
-
-1. Ensure you have the prerequisites installed (see the main [README.md](../../README.md)).
-2. Navigate to this directory:
-   ```bash
-   cd Protocols/BB84
+```bash
+python Protocols/BB84/BB84_Simulation.py
+```

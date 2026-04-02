@@ -1,15 +1,13 @@
 import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
-from qiskit.quantum_info import random_statevector
 
 # Parameters
 n = 4
 total_pairs = 4 * n
 shots = 1024
-threshold = 0.05
 
 def simulate_e91():
-    """Simulates the E91 protocol based on entanglement."""
+    """Run a minimal E91-style entanglement simulation for key extraction."""
     qc = QuantumCircuit(total_pairs * 2, total_pairs * 2)
     
     # Create entangled pairs (Bell state)

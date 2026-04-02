@@ -1,22 +1,13 @@
-# BB84 Attack Simulations
+# Attack Scripts (Exploratory)
 
-## PNS Attack (Photon Number Splitting)
-- **Principle**: Exploits multi-photon pulses to extract bits without disturbing Bob.
-- **File**: `PNS_Attack.py`
-- **Mathematics**: P(k \geq 2) = 1 - e^{-\mu} - \mu e^{-\mu}
+This folder contains small, educational attack-oriented scripts related to QKD assumptions.
 
-## Beam Split Attack
-- **Principle**: Eve splits the signal and measures a fraction of the photons.
-- **File**: `BeamSplit_Attack.py`
-- **Physics**: Transformation |\psi\rangle \to \sqrt{1-\tau}|\psi\rangle_{\text{Bob}} + \sqrt{\tau}|\psi\rangle_{\text{Eve}}
+## Included files
 
-## PNS Attack (Photon Number Splitting)
-- **File**: `PNS_Attack.py`
+- `PNS_Attack.py` — photon-number-splitting style exploration for weak coherent pulse settings.
+- `BeamSplit-Attack.py` — beam-splitting style toy model.
+- `Attack_q-bits.py` — additional interception/coherent-interaction experiments.
 
-## Split-Beam Attack
-- **File**: `BeamSplit_Attack.py`
+## Scope
 
-## Coherent Attack
-- **Principle**: Eve applies a global unitary operation U = e^{-i \theta H} to correlate her qubits with Alice's.
-- **File**: `Attack_q-bits.py`
-- **Mathematics**: Minimal disturbance if \theta \ll 1 \), but \( I(A:E) \propto \sin^2\theta
+These scripts are not a complete adversarial framework and should not be interpreted as full security analyses. They are intended to illustrate why implementation details (multi-photon emissions, detector behavior, channel loss) matter in practice.
