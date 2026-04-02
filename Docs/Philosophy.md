@@ -1,31 +1,23 @@
-# Philosophical Reflections on BB84 and Quantum Cryptography
+# Philosophical Notes on Quantum Cryptography
 
-## Is Reality Objective ?
-Quantum mechanics, at the heart of BB84, challenges our classical understanding of reality. In the Copenhagen interpretation :
-- A qubit has no defined state before measurement.
-- The act of observing (by Bob or Eve) determines the outcome.
+This document is intentionally reflective rather than technical.
 
-This raises a question: does reality exist independently of the observer? If Eve measures a qubit, she alters its state, suggesting that information is not a fixed entity but a process dependent on interaction.
+## Observation and reality
 
-### Metaphysical Implications
-- **Realism** : Classical realism (objects have intrinsic properties) is undermined. Alice's qubits have no "value" before measurement.
-- **Indeterminism** : Unlike Laplace's determinism, quantum mechanics introduces a fundamental uncertainty. BB84 exploits this uncertainty as a force.
+QKD highlights a non-classical idea: measurement is not just passive reading; it can affect the system being measured. In protocol terms, that connection between observation and disturbance becomes a security signal.
 
-## Absolute Security: A Myth ?
-BB84 promises "unbreakable" security based on the laws of physics. But this promise relies on :
-- **Our current understanding** : If new theories surpass quantum mechanics, security could be compromised.
-- **Practical implementations** : Vulnerabilities come not from the protocol but from the devices (e.g., imperfect detectors).
+## What “security from physics” means
 
-Philosophically, this questions the notion of certainty: can we ever guarantee absolute security, or is it an illusion based on assumptions ?
+People often summarize QKD as “security guaranteed by physics.” A more careful reading is:
+- protocol guarantees come from quantum theory assumptions,
+- practical guarantees depend on devices and operational controls.
 
-## The Nature of Information
-BB84 redefines information as a physical phenomenon :
-- A classical bit is static (0 or 1).
-- A qubit is dynamic, linked to its quantum state and observation.
+So the strongest claims are conditional, not absolute.
 
-This brings information closer to concepts like entropy or consciousness: is it a property of the universe or a human construct ?
+## Information as a physical resource
 
-## Ethics and Power
-Quantum cryptography gives an advantage to those who master it :
-- **Surveillance** : States or corporations could use it for impenetrable communications.
-- **Inequalities** : Who has access to this technology? The social implications extend beyond the technical.
+BB84 treats information transfer as constrained by physical law, not only by algorithmic hardness. That shift is one reason QKD remains conceptually interesting even when deployment is difficult.
+
+## Social context
+
+If quantum-secure infrastructure becomes common, access and governance questions matter as much as protocol design.

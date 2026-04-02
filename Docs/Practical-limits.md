@@ -1,19 +1,24 @@
-# Practical Limits of BB84
+# Practical Limits of BB84 Deployments
 
-## Noise in the Quantum Channel
-- **Sources** : Photon loss, decoherence, thermal noise.
-- **Impact** : Increased error rate, potentially masking Eve's interference.
-- **Solution** : Error correction (e.g., cascade codes) and privacy amplification.
+## Channel loss and noise
 
-## Real Attacks
-- **Beam Splitter Attack** : Eve intercepts part of the photons in a multi-photon system.
-- **Blinding Attack** : Exploitation of imperfections in the detectors.
-- **Countermeasures** : Single-photon sources, protocols like decoy-state BB84.
+Real optical channels introduce attenuation and noise. As distance grows, key rates typically drop and error rates become harder to interpret.
 
-## Distance and Repeaters
-- **Limit** : Decoherence limits the range to ~100-200 km without repeaters.
-- **Quantum Repeaters** : n development, but complex (entanglement, quantum memories).
+## Device-level attacks
 
-## Cost and Accessibility
-- **Hardware** : Lasers, single-photon detectors, specialized optical fibers.
-- **Implication** : Currently reserved for large organizations.
+Security proofs assume ideal components, but hardware can deviate.
+Examples include detector-targeting attacks and multi-photon leakage scenarios.
+
+## Countermeasure direction (high level)
+
+- Better source control (including decoy-state techniques in relevant systems).
+- Detector hardening and monitoring.
+- Conservative parameter estimation and finite-key analysis.
+
+## Engineering cost
+
+QKD requires specialized hardware, calibration, and operational discipline. That cost is often the practical bottleneck, not just protocol theory.
+
+## Bottom line
+
+BB84 is strong at the protocol level, but end-to-end security depends on implementation quality and operating assumptions.

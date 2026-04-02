@@ -1,48 +1,36 @@
-# Physical Foundations of Quantum Cryptography and the BB84 Protocol
+# Physical Foundations Behind BB84
 
-## Introduction to Quantum Mechanics
-Quantum mechanics is a branch of physics that describes the behavior of particles at microscopic scales. Unlike classical physics, it relies on probabilistic principles and counterintuitive states. The BB84 protocol exploits these principles to ensure unbreakable security.
+This note summarizes the quantum-mechanical ideas used by BB84.
 
-### Quantum States and Qubits
-A qubit, the fundamental unit of quantum information, differs from a classical bit (0 or 1) because it can exist in a superposition of states :
-- Notation: `|ψ⟩ = α|0⟩ + β|1⟩`, where `α` et `β` are complex amplitudes, and `|α|^2 + |β|^2 = 1`.
-- Example: A qubit in equal superposition, `|ψ⟩ = (1/√2)|0⟩ + (1/√2)|1⟩`, has a 50% probability of being measured as 0 or 1.
+## Qubits and bases
 
-In BB84, Alice encodes her bits into qubits using two bases :
-- Z basis: `{|0⟩, |1⟩}` (vertical/horizontal polarization for photons).
-- X basis: `{|+⟩, |-⟩}` (diagonal states, where `|+⟩ = (1/√2)(|0⟩ + |1⟩)` et `|-⟩ = (1/√2)(|0⟩ - |1⟩)`).
+A qubit can be prepared in different measurement bases.
 
-### Superposition and Preparation
-Superposition allows a qubit to be in an undetermined state until measured. Alice prepares her qubits by randomly selecting a basis (Z or X), making the initial state unpredictable for an external observer like Eve.
+- **Z basis**: \(|0\rangle, |1\rangle\)
+- **X basis**: \(|+\rangle = (|0\rangle + |1\rangle)/\sqrt{2}\), \(|-\rangle = (|0\rangle - |1\rangle)/\sqrt{2}\)
 
-### Measurement Principle
-When a qubit is measured, its state "collapses" into one of the eigenstates of the chosen basis :
-- Measuring a `|+⟩` qubit in the Z basis: 50% chance of obtaining `|0⟩`, 50% for `|1⟩`.
-- Measuring a `|0⟩` qubit in the X basis: 50% chance of obtaining `|+⟩`, 50% for `|-⟩`.
+In BB84, Alice encodes each classical bit using a randomly chosen basis (Z or X).
 
-This principle is crucial for BB84: if Eve measures in a different basis than Alice, she disturbs the qubit’s state, introducing detectable errors.
+## Why basis mismatch matters
 
-### Entanglement (Broader Perspective)
-Although BB84 does not directly use entanglement, this phenomenon illustrates the power of quantum mechanics. Two entangled qubits, such as `|ψ⟩ = (1/√2)(|00⟩ + |11⟩)`, share an instantaneous correlation: measuring one determines the state of the other, even at a distance. While this inspires protocols like E91, BB84 relies solely on superposition and measurement.
+If Bob measures in the same basis Alice used, he can recover her bit (in an ideal channel).
+If he measures in the other basis, his result is random relative to Alice's bit.
 
-### The Role of Photons
-In real-world implementations, qubits are often represented by polarized photons :
-- `|0⟩` : Vertical polarization (0°).
-- `|1⟩` : Horizontal polarization (90°).
-- `|+⟩` : Diagonal polarization (45°).
-- `|-⟩` : PAnti-diagonal polarization (135°).
+That same mechanism is what makes interception detectable: an eavesdropper who guesses bases incorrectly introduces extra errors.
 
-The quantum channel (optical fiber or free space) transmits these photons from Alice to Bob.
+## Measurement disturbance and no-cloning
 
-### Indeterminism and Security
-Quantum indeterminism ensures that any interception attempt by Eve alters the qubits in a detectable way. This follows from the no-cloning theorem, which states that an unknown quantum state cannot be perfectly copied, making eavesdropping impossible without introducing disturbances.
-## Application in BB84
-- **Encoding** : Alice uses superposition to encode her bits in random bases.
-- **Random Measurement** : Bob independently selects bases, and errors due to incorrect bases are expected (50% match probability).
-- **Detection** : Any additional disturbance (by Eve) increases the error rate beyond this natural threshold.
+Two principles motivate BB84 security intuition:
 
-## Physical Limitations
-- **Noise** : In real-world scenarios, the quantum channel introduces noise (e.g., photon loss), requiring error correction.
-- **Distance** : Decoherence limits the range without quantum repeaters.
+1. **Measurement disturbance**: measuring a state in an incompatible basis changes outcome statistics.
+2. **No-cloning theorem**: unknown quantum states cannot be copied perfectly.
 
-This file explores essential physical foundations. For a practical simulation, see [BB84_Simulation.py](../Quantum_security/BB84_Simulation.py).
+Together, they make passive undetectable copying impossible in the idealized protocol.
+
+## Entanglement and relation to E91
+
+BB84 does not require entanglement. Entanglement-based protocols (such as E91) use related physics but different security tests.
+
+## Practical caveat
+
+Real channels and detectors add noise and loss, so observed errors are not always caused by adversaries. That is why practical QKD systems need calibrated thresholds and stronger post-processing than toy simulations.
