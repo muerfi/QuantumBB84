@@ -1,39 +1,41 @@
-# BB84 vs E91 (Project-Level Comparison)
+# Protocol Notes: BB84 and Simplified E91
 
-This document compares the two protocol implementations in this repository.
+This directory contains legacy protocol notes and scripts. For reproducible command-line simulations, prefer the refactored package interface:
+
+```bash
+python -m quantum_bb84 simulate bb84 --qubits 100 --seed 42
+python -m quantum_bb84 simulate e91 --pairs 100 --seed 42
+```
 
 ## Shared goal
 
-Both protocols aim to let Alice and Bob establish a shared secret key while detecting eavesdropping through quantum effects.
+BB84 and E91-style protocols are studied because they show how quantum measurement statistics and authenticated public discussion can help Alice and Bob estimate whether their raw data are suitable for further post-processing.
 
-## BB84 in this repo
+In this repository, both protocols are educational simulations. They produce candidate key material and QBER estimates under simplified assumptions; they do not produce deployable cryptographic keys.
 
-- Uses single-qubit state preparation in two bases (Z/X).
-- Security signal comes from disturbance introduced by incompatible measurements.
-- Implementation includes optional interception and a simple error-threshold decision rule.
+## BB84 in this repository
 
-## E91 in this repo
+- Uses single-qubit preparation choices represented by random bits and two basis labels.
+- Uses random Bob measurement bases and retains only matching-basis positions.
+- Includes a toy intercept-resend option in the refactored package.
+- Uses a simple QBER threshold as a teaching heuristic, not as a finite-key security statement.
 
-- Uses entangled qubit pairs and random basis choices.
-- Implementation focuses on key extraction from matching bases and error-rate reporting.
-- The current script does **not** implement a full CHSH/Bell-inequality workflow.
+## Simplified E91 in this repository
+
+- Uses entangled-pair intuition and random basis labels.
+- Models matching-basis correlations and key extraction from matching settings.
+- Does not currently implement CHSH/Bell-test statistics, explicit E91 security acceptance criteria, or finite-key analysis.
 
 ## Practical differences
 
-| Aspect | BB84 implementation | E91 implementation |
+| Aspect | BB84 implementation | Simplified E91 implementation |
 |---|---|---|
-| Quantum resource | Prepared single qubits | Entangled pairs |
-| Eavesdropper modeling | Included in script (intercept probability) | Not explicitly modeled |
-| Bell/CHSH test | Not applicable | Not currently implemented |
-| Complexity | Lower | Higher |
+| Quantum resource modeled | Prepared single-qubit states | Entangled-pair correlations |
+| Sifting rule | Keep matching preparation/measurement bases | Keep matching measurement settings |
+| Toy eavesdropper model | Intercept-resend in package CLI | Not currently implemented |
+| Bell/CHSH test | Not applicable to BB84 flow | Not currently implemented |
+| Security interpretation | Protocol intuition only | Entanglement-and-sifting demonstration only |
 
 ## Important caveat
 
-This repository demonstrates protocol ideas, not a complete secure communications stack. Real QKD systems require careful device modeling, calibration, authenticated classical channels, and stronger post-processing.
-
-## Run the examples
-
-```bash
-python Protocols/BB84/BB84_Simulation.py
-python Protocols/E91/E91_Simulation.py
-```
+Real QKD systems require authenticated classical channels, error correction, privacy amplification, finite-key analysis, calibrated hardware models, and implementation-security review. The simulations here are useful for learning protocol mechanics, not for certifying practical secrecy.

@@ -77,7 +77,7 @@ def simulate_coherent_attack():
     if error_rate > threshold:
         print("Interference detected!")
     else:
-        print("Coherent attack successful without detection!")
+        print("Toy coherent-interaction disturbance not detected in this finite check sample.")
     return alice_key, eve_key, error_rate
 
 if __name__ == "__main__":

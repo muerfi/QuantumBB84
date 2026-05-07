@@ -1,19 +1,26 @@
-# E91 Protocol (Implementation Notes)
+# Simplified E91 Protocol Notes
 
-## What this script demonstrates
+## Recommended run command
 
-`E91_Simulation.py` builds entangled pairs, applies random measurement settings for Alice and Bob, and extracts key/check bits from matching settings.
-
-## What it does not yet include
-
-- Explicit eavesdropper strategies.
-- Full CHSH/Bell-test computation and acceptance criteria.
-- End-to-end post-processing pipeline.
-
-So this should be read as a compact entanglement-based key-generation demo, not a full E91 security proof implementation.
-
-## Run
+Use the refactored package CLI for reproducible runs:
 
 ```bash
-python Protocols/E91/E91_Simulation.py
+python -m quantum_bb84 simulate e91 --pairs 100 --seed 42
 ```
+
+The older `E91_Simulation.py` script is retained as historical educational material and may depend on legacy Qiskit/Aer behavior.
+
+## What the current model demonstrates
+
+The package-level E91 simulation models entangled-pair intuition, random basis choices, matching-setting correlations, basis reconciliation, key sifting, and QBER estimation.
+
+## What it does not include
+
+- Explicit eavesdropper strategies.
+- CHSH/Bell-test statistics.
+- E91 security acceptance criteria.
+- Finite-key analysis.
+- Detector-efficiency or loophole modeling.
+- Error correction, privacy amplification, or authentication.
+
+This should be read as a compact entanglement-and-sifting demonstration, not as a full E91 security-proof implementation.

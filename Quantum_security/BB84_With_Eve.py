@@ -68,9 +68,9 @@ def simulate_bb84_with_eve():
     error_rate = np.mean(alice_check != bob_check)
     print(f"Error rate: {error_rate:.3f}")
     if error_rate > error_threshold:
-        print("Interference detected by Eve! Aborted.")
+        print("Interference detected in toy Eve scenario; aborted.")
         return None
-    print("Secure key (Eve undetected): ", alice_key)
+    print("Candidate key accepted under this toy threshold (toy Eve not detected in check sample): ", alice_key)
     return alice_key
 
 if __name__ == "__main__":

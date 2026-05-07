@@ -41,8 +41,8 @@ def extract_key(bits: np.ndarray, indices: np.ndarray, n: int) -> tuple[np.ndarr
     indices:
         Indices of the bits that Alice and Bob agree upon.
     n:
-        Desired length of the final key.  An additional ``n`` bits are used as
-        check bits.
+        Desired length of the candidate key in these legacy scripts.
+        An additional ``n`` bits are used as check bits.
     """
 
     selected_bits = bits[indices]

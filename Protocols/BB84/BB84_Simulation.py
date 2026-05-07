@@ -9,7 +9,7 @@ from Quantum_security.utils import (
 import random
 
 # Parameters
-n = 4  # Length of the final key
+n = 4  # Length of the candidate key in this legacy toy script
 total_qubits = 4 * n  # Total qubits sent (before sifting)
 shots = 1  # Number of shots for simulation
 eve_present = True  # Toggle Eve's presence (True/False)
