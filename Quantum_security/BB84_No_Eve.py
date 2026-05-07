@@ -57,7 +57,7 @@ def simulate_bb84_no_eve():
     if error_rate > error_threshold:
         print("Unexpected error! Aborted.")
         return None
-    print("Secure key: ", alice_key)
+    print("Candidate key accepted under this toy threshold: ", alice_key)
     return alice_key
 
 if __name__ == "__main__":

@@ -1,13 +1,11 @@
 # References
 
+For the current documentation pass, see `docs/REFERENCES.md`. This legacy list is retained as a short pointer to background material.
+
 ## Foundational papers
 
 - C. H. Bennett and G. Brassard (1984), *Quantum cryptography: Public key distribution and coin tossing*.
 - A. K. Ekert (1991), *Quantum cryptography based on Bell’s theorem*, Physical Review Letters.
-
-## Useful documentation
-
-- Qiskit documentation: https://qiskit.org/documentation/
 
 ## Introductory reading
 

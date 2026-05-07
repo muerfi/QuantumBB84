@@ -66,7 +66,7 @@ def simulate_pns_attack():
     if error_rate > threshold:
         print("Interference detected!")
         return None, None, error_rate
-    print("PNS attack successful without detection!")
+    print("Toy PNS-style disturbance not detected in this finite check sample.")
     return alice_key, eve_key, error_rate
 
 if __name__ == "__main__":

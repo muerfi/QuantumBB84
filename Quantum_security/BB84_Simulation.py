@@ -79,7 +79,7 @@ def simulate_bb84(with_eve=False):
         print("Interference detected! Protocol aborted.")
         return None, None
     else:
-        print("Secure key successfully exchanged!")
+        print("Candidate key accepted under this toy threshold; not a real security guarantee.")
         return alice_key, bob_key
 
 if __name__ == "__main__":
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     # Visualization of results (statistics)
     if key_no_eve is not None:
-        print(f"Final key without Eve: {key_no_eve}")
+        print(f"Final candidate key without Eve: {key_no_eve}")
     if key_with_eve is not None:
-        print(f"Final key with Eve: {key_with_eve}")
+        print(f"Final candidate key with toy Eve: {key_with_eve}")
       
